@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "customer")
 @Data
@@ -23,4 +26,7 @@ public class Customer {
     private String lastname;
     private String patronymic;
     private Double money;
+
+    @OneToMany(mappedBy = "customer")
+    private Set<Purchase> purchases = new HashSet<>();
 }

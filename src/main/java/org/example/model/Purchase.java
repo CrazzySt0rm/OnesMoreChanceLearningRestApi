@@ -19,6 +19,10 @@ public class Purchase {   //покупка
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private long customerId;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
     private Double price;
 }
