@@ -28,9 +28,8 @@ public class PurchaseController {
     }
 
     @PutMapping("/purchase")
-    public ResponseEntity updatePurch(@RequestBody Purchase purchase) {
-        purchaseService.updatePurchase(purchase);
-        purchaseService.writeOfMoney(purchase);
+    public ResponseEntity updatePurch(@RequestBody PurchaseDTO purchase) {
+        purchaseService.makePurchase(purchase);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
